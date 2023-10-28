@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import BurgerBuilder from './components/BurgerBuilder';
+import PriceDisplay from './components/PriceDisplay';
 
 function App() {
+  const [ingredients, setIngredients] = useState({
+    salad: 0,
+    cheese: 0,
+    meat: 0,
+    bacon: 0,
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hamburger App</h1>
+      <BurgerBuilder ingredients={ingredients} setIngredients={setIngredients} />
+      <PriceDisplay ingredients={ingredients} />
     </div>
   );
 }
 
 export default App;
+
+
